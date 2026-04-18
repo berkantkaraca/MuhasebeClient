@@ -3,7 +3,7 @@ import { bootstrapApplication, BrowserModule } from "@angular/platform-browser";
 import { RouterModule } from "@angular/router";
 import { AppComponent } from "./app/app.component";
 import { AuthGuard } from "./app/ui/components/auth/guards/auth.guard";
-import {provideHttpClient} from "@angular/common/http"
+import { provideHttpClient } from "@angular/common/http"
 
 bootstrapApplication(AppComponent, {
   providers: [
@@ -18,7 +18,11 @@ bootstrapApplication(AppComponent, {
           children: [
             {
               path: "",
-              loadComponent: () => import("./app/ui/components/blank/blank.component").then(c => c.BlankComponent)
+              loadComponent: () => import("./app/common/components/blank/blank.component").then(c => c.BlankComponent)
+            },
+            {
+              path: "ucafs",
+              loadComponent: () => import("./app/ui/components/ucafs/ucafs.component").then(c => c.UcafsComponent)
             }
           ]
         },
